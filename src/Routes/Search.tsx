@@ -182,7 +182,7 @@ function Search() {
   console.log(keyword);
 
   const history = useNavigate();
-  const bigMovieMatch = useMatch("/search/:id");
+  const bigMovieMatch = useMatch("/react-masterclass-nomflix/search/:id");
   const { scrollY } = useScroll();
   const { data: movieData, isLoading: isMovieLoading } =
     useQuery<IGetMoviesResult>(["movies", "searchMoive"], () =>
@@ -225,7 +225,7 @@ function Search() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, id: number) => {
     setCurrentMode(mode);
-    history(`/search/${id}`);
+    history(`/react-masterclass-nomflix/search/${id}`);
   };
 
   const onOverlayClick = () => {

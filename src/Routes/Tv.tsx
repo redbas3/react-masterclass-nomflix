@@ -198,7 +198,7 @@ const offset = 6;
 
 function Tv() {
   const history = useNavigate();
-  const bigTvMatch = useMatch("/tv/:tvId");
+  const bigTvMatch = useMatch("/react-masterclass-nomflix/tv/:tvId");
   const { scrollY } = useScroll();
   const { data: onTheData, isLoading: isOnTheLoading } = useQuery<IGetTvResult>(
     ["tv", "onThe"],
@@ -270,7 +270,7 @@ function Tv() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, tvId: number) => {
     setCurrentMode(mode);
-    history(`/tv/${tvId}`);
+    history(`/react-masterclass-nomflix/tv/${tvId}`);
   };
 
   const onOverlayClick = () => {

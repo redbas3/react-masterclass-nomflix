@@ -198,7 +198,7 @@ const offset = 6;
 
 function Home() {
   const history = useNavigate();
-  const bigMovieMatch = useMatch("/movies/:movieId");
+  const bigMovieMatch = useMatch("/react-masterclass-nomflix/movies/:movieId");
   const { scrollY } = useScroll();
   const { data: nowData, isLoading: isNowLoading } = useQuery<IGetMoviesResult>(
     ["movies", "nowPlaying"],
@@ -266,7 +266,7 @@ function Home() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, movieId: number) => {
     setCurrentMode(mode);
-    history(`/movies/${movieId}`);
+    history(`/react-masterclass-nomflix/movies/${movieId}`);
   };
 
   const onOverlayClick = () => {
