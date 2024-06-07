@@ -113,8 +113,8 @@ interface IForm {
 
 function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
-  const homeMatch = useMatch("/react-masterclass-nomflix");
-  const tvMatch = useMatch("/react-masterclass-nomflix/tv");
+  const homeMatch = useMatch("/");
+  const tvMatch = useMatch("/tv");
   const navAnimation = useAnimation();
   const inputAnimation = useAnimation();
   const { scrollY } = useScroll();
@@ -145,7 +145,7 @@ function Header() {
   const history = useNavigate();
   const { register, handleSubmit } = useForm<IForm>();
   const onValid = (data: IForm) => {
-    history(`/react-masterclass-nomflix/search?keyword=${data.keyword}`);
+    history(`/search?keyword=${data.keyword}`);
   };
 
   return (
@@ -163,12 +163,12 @@ function Header() {
         </Logo>
         <Items>
           <Item>
-            <Link to="/react-masterclass-nomflix/">
+            <Link to="/">
               Home {homeMatch ? <Circle layoutId="circle" /> : null}
             </Link>
           </Item>
           <Item>
-            <Link to="/react-masterclass-nomflix/tv">
+            <Link to="/tv">
               Tv Shows {tvMatch ? <Circle layoutId="circle" /> : null}
             </Link>
           </Item>

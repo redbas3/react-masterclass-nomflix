@@ -83,7 +83,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div)<{ bgphoto: string }>`
+const Box = styled(motion.div) <{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -198,7 +198,7 @@ const offset = 6;
 
 function Home() {
   const history = useNavigate();
-  const bigMovieMatch = useMatch("/react-masterclass-nomflix/movies/:movieId");
+  const bigMovieMatch = useMatch("/movies/:movieId");
   const { scrollY } = useScroll();
   const { data: nowData, isLoading: isNowLoading } = useQuery<IGetMoviesResult>(
     ["movies", "nowPlaying"],
@@ -266,7 +266,7 @@ function Home() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, movieId: number) => {
     setCurrentMode(mode);
-    history(`/react-masterclass-nomflix/movies/${movieId}`);
+    history(`/movies/${movieId}`);
   };
 
   const onOverlayClick = () => {

@@ -9,16 +9,16 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/react-masterclass-nomflix" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
-          path="/react-masterclass-nomflix/movies/:movieId"
+          path="/movies/:movieId"
           element={<Home />}
         />
-        <Route path="/react-masterclass-nomflix/tv" element={<Tv />} />
-        <Route path="/react-masterclass-nomflix/tv/:tvId" element={<Tv />} />
-        <Route path="/react-masterclass-nomflix/search" element={<Search />} />
+        <Route path="/tv" element={<Tv />} />
+        <Route path="/tv/:tvId" element={<Tv />} />
+        <Route path="/search" element={<Search />} />
         <Route
-          path="/react-masterclass-nomflix/search/:id"
+          path="/search/:id"
           element={<Search />}
         />
       </Routes>

@@ -63,7 +63,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div)<{ bgphoto: string }>`
+const Box = styled(motion.div) <{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -182,7 +182,7 @@ function Search() {
   console.log(keyword);
 
   const history = useNavigate();
-  const bigMovieMatch = useMatch("/react-masterclass-nomflix/search/:id");
+  const bigMovieMatch = useMatch("/search/:id");
   const { scrollY } = useScroll();
   const { data: movieData, isLoading: isMovieLoading } =
     useQuery<IGetMoviesResult>(["movies", "searchMoive"], () =>
@@ -225,7 +225,7 @@ function Search() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, id: number) => {
     setCurrentMode(mode);
-    history(`/react-masterclass-nomflix/search/${id}`);
+    history(`/search/${id}`);
   };
 
   const onOverlayClick = () => {

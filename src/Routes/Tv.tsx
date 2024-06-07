@@ -83,7 +83,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div)<{ bgphoto: string }>`
+const Box = styled(motion.div) <{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -198,7 +198,7 @@ const offset = 6;
 
 function Tv() {
   const history = useNavigate();
-  const bigTvMatch = useMatch("/react-masterclass-nomflix/tv/:tvId");
+  const bigTvMatch = useMatch("/tv/:tvId");
   const { scrollY } = useScroll();
   const { data: onTheData, isLoading: isOnTheLoading } = useQuery<IGetTvResult>(
     ["tv", "onThe"],
@@ -270,7 +270,7 @@ function Tv() {
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const onBoxClicked = (mode: string, tvId: number) => {
     setCurrentMode(mode);
-    history(`/react-masterclass-nomflix/tv/${tvId}`);
+    history(`/tv/${tvId}`);
   };
 
   const onOverlayClick = () => {
