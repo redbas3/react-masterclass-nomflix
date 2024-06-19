@@ -63,7 +63,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div) <{ bgphoto: string }>`
+const Box = styled(motion.div)<{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -272,7 +272,7 @@ function Search() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"movie" + indexMovie}
               >
                 {movieData?.results
@@ -316,7 +316,7 @@ function Search() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"tv" + indexTv}
               >
                 {tvData?.results

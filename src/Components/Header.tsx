@@ -78,12 +78,16 @@ const Input = styled(motion.input)`
   position: absolute;
   right: 0px;
   padding: 5px 10px;
-  padding-left: 40px;
   z-index: -1;
   color: white;
   font-size: 16px;
   background-color: transparent;
   border: 1px solid ${(props) => props.theme.white.lighter};
+
+  &::placeholder {
+    color: white;
+    opacity: 0.5;
+  }
 `;
 
 const logoVariants = {
@@ -178,7 +182,7 @@ function Header() {
         <Search onSubmit={handleSubmit(onValid)}>
           <motion.svg
             onClick={toggleSearch}
-            animate={{ x: searchOpen ? -240 : 0 }}
+            animate={{ x: searchOpen ? -200 : 0 }}
             transition={{ type: "linear" }}
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -195,7 +199,7 @@ function Header() {
             initial={{ scaleX: 0 }}
             animate={inputAnimation}
             transition={{ type: "linear" }}
-            placeholder="Search for movie or tv show"
+            placeholder="Search"
           ></Input>
         </Search>
       </Col>

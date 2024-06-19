@@ -83,7 +83,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div) <{ bgphoto: string }>`
+const Box = styled(motion.div)<{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -148,6 +148,28 @@ const BigTitle = styled.h3`
   top: -80px;
 `;
 
+const BigDate = styled.span`
+  color: ${(props) => props.theme.white.lighter};
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+  top: -70px;
+`;
+
+const BigRating = styled.span`
+  color: ${(props) => props.theme.white.lighter};
+  padding: 0;
+  font-size: 14px;
+  position: relative;
+  top: -70px;
+
+  span {
+    margin-right: 3px;
+    color: yellow;
+    opacity: 0.9;
+  }
+`;
+
 const BigOverview = styled.p`
   color: ${(props) => props.theme.white.lighter};
   padding: 20px;
@@ -176,8 +198,8 @@ const boxVariants = {
     scale: 1.3,
     y: -50,
     transition: {
-      delay: 0.5,
-      duration: 0.3,
+      delay: 0.1,
+      duration: 0.2,
       type: "tween",
     },
   },
@@ -187,7 +209,7 @@ const infoVariants = {
   hover: {
     opacity: 1,
     transition: {
-      delay: 0.5,
+      delay: 0.2,
       duration: 0.3,
       type: "tween",
     },
@@ -298,6 +320,8 @@ function Home() {
       upcomingData?.results.find(
         (movie) => movie.id.toString() === bigMovieMatch.params.movieId
       );
+  } else {
+    clickedMovie = nowData?.results[0];
   }
   return (
     <Wrapper>
@@ -306,6 +330,11 @@ function Home() {
       ) : (
         <>
           <Banner
+            onClick={() =>
+              nowData?.results[0]?.id
+                ? onBoxClicked("now", nowData?.results[0].id)
+                : null
+            }
             bgphoto={makeImagePath(nowData?.results[0].backdrop_path || "")}
           >
             <Title>{nowData?.results[0].title}</Title>
@@ -330,7 +359,7 @@ function Home() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"now" + indexNow}
               >
                 {nowData?.results
@@ -374,7 +403,7 @@ function Home() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"popular" + indexPopular}
               >
                 {popularData?.results
@@ -417,7 +446,7 @@ function Home() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"topRated" + indexTopRated}
               >
                 {topRatedData?.results
@@ -516,6 +545,11 @@ function Home() {
                         }}
                       ></BigCover>
                       <BigTitle>{clickedMovie.title}</BigTitle>
+                      <BigDate>{clickedMovie.release_date}</BigDate>
+                      <BigRating>
+                        <span>♥️</span>
+                        {clickedMovie.vote_average}
+                      </BigRating>
                       <BigOverview>{clickedMovie.overview}</BigOverview>
                     </>
                   )}

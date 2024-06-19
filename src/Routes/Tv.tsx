@@ -83,7 +83,7 @@ const Row = styled(motion.div)`
   width: 100%;
 `;
 
-const Box = styled(motion.div) <{ bgphoto: string }>`
+const Box = styled(motion.div)<{ bgphoto: string }>`
   height: 200px;
   font-size: 66px;
   background-image: url(${(props) => props.bgphoto});
@@ -334,7 +334,7 @@ function Tv() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"onThe" + indexNow}
               >
                 {onTheData?.results
@@ -378,7 +378,7 @@ function Tv() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"today" + indexToday}
               >
                 {todayData?.results
@@ -421,7 +421,7 @@ function Tv() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"popular" + indexPopular}
               >
                 {popularData?.results
@@ -464,7 +464,7 @@ function Tv() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ type: "tween", duration: 1 }}
+                transition={{ type: "eaesing", duration: 0.5 }}
                 key={"topRated" + indexTopRated}
               >
                 {topRatedData?.results
